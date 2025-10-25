@@ -1,0 +1,10 @@
+global_market_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: mysql
+      server: localhost
+      user: admin
+      password: admin
+      schema: marketdb
+      port: 3306

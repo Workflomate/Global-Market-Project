@@ -1,0 +1,13 @@
+name: 'global_market_dbt'
+version: '1.0.0'
+profile: 'global_market_dbt'
+config-version: 2
+
+models:
+  global_market_dbt:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    final:
+      +materialized: table
