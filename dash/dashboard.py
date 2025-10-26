@@ -7,10 +7,8 @@ import os
 import io
 import base64
 
-# تحميل إعدادات الاتصال من .env
 load_dotenv()
 
-# إنشاء الاتصال بقاعدة البيانات
 def get_connection():
     return mysql.connector.connect(
         host=os.getenv("MYSQL_HOST"),
@@ -19,13 +17,11 @@ def get_connection():
         database=os.getenv("MYSQL_DATABASE")
     )
 
-# دالة لجلب البيانات من جدول
 def get_table_data(table_name):
     conn = get_connection()
     df = pd.read_sql_query(f"SELECT * FROM {table_name}", conn)
     conn.close()
 
-    # تنظيف القيم الفارغة أو المكررة حسب الجدول
     if table_name == "fct_market_summary":
         df["volatility"] = df["volatility"].fillna(0)
 
@@ -34,18 +30,15 @@ def get_table_data(table_name):
 
     return df
 
-# إنشاء تطبيق Dash
 app = Dash(__name__)
 app.title = "🌍 Global Market Dashboard"
 
-# القوائم
 tables = {
     "fct_market_summary": "Market Summary 📈",
     "forecast_metrics": "Forecast Metrics 📊",
     "forecast_results": "Forecast Results 🔮"
 }
 
-# تصميم الواجهة
 app.layout = html.Div(
     style={"backgroundColor": "#f7f9fc", "fontFamily": "Arial, sans-serif", "padding": "20px"},
     children=[
@@ -83,7 +76,6 @@ app.layout = html.Div(
     ]
 )
 
-# كولباك لتحديث الجدول والرسومات
 @app.callback(
     [Output('table-container', 'children'),
      Output('graph-container', 'children')],
@@ -93,7 +85,6 @@ app.layout = html.Div(
 def update_table(selected_table, n_clicks):
     df = get_table_data(selected_table)
 
-    # جدول البيانات
     table = dash_table.DataTable(
         data=df.to_dict("records"),
         columns=[{"name": i, "id": i} for i in df.columns],
@@ -105,7 +96,6 @@ def update_table(selected_table, n_clicks):
         style_data_conditional=[{'if': {'row_index': 'odd'}, 'backgroundColor': '#f2f2f2'}]
     )
 
-    # تحديد الرسومات حسب الجدول
     if selected_table == "fct_market_summary":
         fig1 = px.line(df, x="trade_date", y="avg_return", title="Average Return Over Time", markers=True)
         fig2 = px.line(df, x="trade_date", y="volatility", title="Market Volatility Over Time", markers=True)
@@ -163,7 +153,6 @@ def update_table(selected_table, n_clicks):
     return html.Div([html.H3("📋 Table Data", style={"color": "#1f77b4"}), table]), graph_div
 
 
-# كولباك لتحميل الجدول كـ CSV
 @app.callback(
     Output("download-dataframe-csv", "data"),
     Input("download-btn", "n_clicks"),
