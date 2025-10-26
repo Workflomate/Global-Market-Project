@@ -1939,3 +1939,356 @@ drop table if exists `marketdb`.`fct_market_summary__dbt_backup`
 [0m01:26:33.814470 [debug] [MainThread]: Command `dbt test` succeeded at 01:26:33.814126 after 1.36 seconds
 [0m01:26:33.815773 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4b93dfade0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4b93d1c140>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7e4b93c95070>]}
 [0m01:26:33.822535 [debug] [MainThread]: Flushing usage events
+[0m20:46:24.007250 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4d01d25a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4d01d0830>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4d01d0260>]}
+
+
+============================== 20:46:24.013162 | 2a301818-3273-46d8-8f36-ff951044455e ==============================
+[0m20:46:24.013162 [info ] [MainThread]: Running with dbt=1.7.0
+[0m20:46:24.014004 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'profiles_dir': '/workspaces/Global-Market-Project/dbt', 'log_path': '/workspaces/Global-Market-Project/dbt/logs', 'debug': 'False', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'introspect': 'True', 'invocation_command': 'dbt run', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m20:46:24.490228 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4d03ce180>]}
+[0m20:46:24.585016 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4d00e5700>]}
+[0m20:46:24.587439 [info ] [MainThread]: Registered adapter: mysql=1.7.0
+[0m20:46:24.609279 [debug] [MainThread]: checksum: 8434eacd4ffdf0ca3ab22bf0e2d55b45306c9599613e842b959405abc489e606, vars: {}, profile: , target: , version: 1.7.0
+[0m20:46:24.738658 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m20:46:24.739827 [debug] [MainThread]: Partial parsing: updated file: global_market_dbt://models/final/fct_market_summary.sql
+[0m20:46:24.891971 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cf5423f0>]}
+[0m20:46:24.900426 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cf612840>]}
+[0m20:46:24.902401 [info ] [MainThread]: Found 3 models, 1 source, 0 exposures, 0 metrics, 375 macros, 0 groups, 0 semantic models
+[0m20:46:24.903022 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cf3aa180>]}
+[0m20:46:24.906244 [info ] [MainThread]: 
+[0m20:46:24.907183 [debug] [MainThread]: Acquiring new mysql connection 'master'
+[0m20:46:24.908548 [debug] [ThreadPool]: Acquiring new mysql connection 'list_schemas'
+[0m20:46:24.919038 [debug] [ThreadPool]: Using mysql connection "list_schemas"
+[0m20:46:24.919599 [debug] [ThreadPool]: On list_schemas: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "connection_name": "list_schemas"} */
+select distinct schema_name
+        from information_schema.schemata
+[0m20:46:24.920139 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m20:46:25.069415 [debug] [ThreadPool]: SQL status: SUCCESS 5 in 0.0 seconds
+[0m20:46:25.071140 [debug] [ThreadPool]: On list_schemas: Close
+[0m20:46:25.074048 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_schemas, now list_None_marketdb)
+[0m20:46:25.080814 [debug] [ThreadPool]: Using mysql connection "list_None_marketdb"
+[0m20:46:25.081355 [debug] [ThreadPool]: On list_None_marketdb: BEGIN
+[0m20:46:25.081875 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m20:46:25.107418 [debug] [ThreadPool]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.107986 [debug] [ThreadPool]: Using mysql connection "list_None_marketdb"
+[0m20:46:25.108509 [debug] [ThreadPool]: On list_None_marketdb: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "connection_name": "list_None_marketdb"} */
+select
+      null as "database",
+      table_name as name,
+      table_schema as "schema",
+      case when table_type = 'BASE TABLE' then 'table'
+           when table_type = 'VIEW' then 'view'
+           else table_type
+      end as table_type
+    from information_schema.tables
+    where table_schema = 'marketdb'
+  
+[0m20:46:25.110229 [debug] [ThreadPool]: SQL status: SUCCESS 7 in 0.0 seconds
+[0m20:46:25.111705 [debug] [ThreadPool]: On list_None_marketdb: ROLLBACK
+[0m20:46:25.112380 [debug] [ThreadPool]: On list_None_marketdb: Close
+[0m20:46:25.115619 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cf3aba40>]}
+[0m20:46:25.117702 [debug] [MainThread]: Using mysql connection "master"
+[0m20:46:25.118248 [debug] [MainThread]: On master: BEGIN
+[0m20:46:25.118775 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m20:46:25.144193 [debug] [MainThread]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.144760 [debug] [MainThread]: On master: COMMIT
+[0m20:46:25.145317 [debug] [MainThread]: Using mysql connection "master"
+[0m20:46:25.145924 [debug] [MainThread]: On master: COMMIT
+[0m20:46:25.146788 [debug] [MainThread]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.147317 [debug] [MainThread]: On master: Close
+[0m20:46:25.149492 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m20:46:25.150378 [info ] [MainThread]: 
+[0m20:46:25.153967 [debug] [Thread-1 (]: Began running node model.global_market_dbt.stg_global_index
+[0m20:46:25.154627 [info ] [Thread-1 (]: 1 of 3 START sql view model marketdb.stg_global_index .......................... [RUN]
+[0m20:46:25.155556 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_None_marketdb, now model.global_market_dbt.stg_global_index)
+[0m20:46:25.156229 [debug] [Thread-1 (]: Began compiling node model.global_market_dbt.stg_global_index
+[0m20:46:25.163609 [debug] [Thread-1 (]: Writing injected SQL for node "model.global_market_dbt.stg_global_index"
+[0m20:46:25.164495 [debug] [Thread-1 (]: Timing info for model.global_market_dbt.stg_global_index (compile): 20:46:25.156698 => 20:46:25.164175
+[0m20:46:25.165062 [debug] [Thread-1 (]: Began executing node model.global_market_dbt.stg_global_index
+[0m20:46:25.197762 [debug] [Thread-1 (]: Writing runtime sql for node "model.global_market_dbt.stg_global_index"
+[0m20:46:25.198524 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.199091 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: BEGIN
+[0m20:46:25.199604 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:46:25.225196 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.225813 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.226410 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.stg_global_index"} */
+
+  create view `marketdb`.`stg_global_index__dbt_tmp`
+    
+    
+  as (
+    
+
+WITH source AS (
+    SELECT
+        CAST(`date` AS DATE) AS trade_date,
+        TRIM(`index_code`) AS index_name,
+        CAST(`open` AS DECIMAL(15,2)) AS open_price,
+        CAST(`high` AS DECIMAL(15,2)) AS high_price,
+        CAST(`low` AS DECIMAL(15,2)) AS low_price,
+        CAST(`close` AS DECIMAL(15,2)) AS close_price,
+        CAST(`adj_close` AS DECIMAL(15,2)) AS adj_close_price,
+        CAST(`volume` AS SIGNED) AS volume
+    FROM `marketdb`.`index_data`
+)
+SELECT
+    trade_date,
+    index_name,
+    open_price,
+    high_price,
+    low_price,
+    close_price,
+    adj_close_price,
+    volume
+FROM source
+WHERE close_price IS NOT NULL
+  );
+[0m20:46:25.244798 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.253205 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.254083 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.stg_global_index"} */
+
+    drop view if exists `marketdb`.`stg_global_index__dbt_backup` cascade
+  
+[0m20:46:25.257054 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.258696 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.259623 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.stg_global_index"} */
+
+    rename table `marketdb`.`stg_global_index` to `marketdb`.`stg_global_index__dbt_backup`
+  
+[0m20:46:25.264385 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.267883 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.268470 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.stg_global_index"} */
+
+    drop view if exists `marketdb`.`stg_global_index` cascade
+  
+[0m20:46:25.270942 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.272343 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.273015 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.stg_global_index"} */
+
+    rename table `marketdb`.`stg_global_index__dbt_tmp` to `marketdb`.`stg_global_index`
+  
+[0m20:46:25.280084 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.299019 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: COMMIT
+[0m20:46:25.299615 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.300221 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: COMMIT
+[0m20:46:25.301043 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.306522 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.stg_global_index"
+[0m20:46:25.307200 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.stg_global_index"} */
+drop view if exists `marketdb`.`stg_global_index__dbt_backup`
+[0m20:46:25.311681 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.313423 [debug] [Thread-1 (]: Timing info for model.global_market_dbt.stg_global_index (execute): 20:46:25.165416 => 20:46:25.313139
+[0m20:46:25.314049 [debug] [Thread-1 (]: On model.global_market_dbt.stg_global_index: Close
+[0m20:46:25.316042 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cf66aed0>]}
+[0m20:46:25.318254 [info ] [Thread-1 (]: 1 of 3 OK created sql view model marketdb.stg_global_index ..................... [[32mSUCCESS 0[0m in 0.16s]
+[0m20:46:25.319143 [debug] [Thread-1 (]: Finished running node model.global_market_dbt.stg_global_index
+[0m20:46:25.320195 [debug] [Thread-1 (]: Began running node model.global_market_dbt.int_market_metrics
+[0m20:46:25.320846 [info ] [Thread-1 (]: 2 of 3 START sql view model marketdb.int_market_metrics ........................ [RUN]
+[0m20:46:25.321733 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.global_market_dbt.stg_global_index, now model.global_market_dbt.int_market_metrics)
+[0m20:46:25.322295 [debug] [Thread-1 (]: Began compiling node model.global_market_dbt.int_market_metrics
+[0m20:46:25.326047 [debug] [Thread-1 (]: Writing injected SQL for node "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.326990 [debug] [Thread-1 (]: Timing info for model.global_market_dbt.int_market_metrics (compile): 20:46:25.322665 => 20:46:25.326688
+[0m20:46:25.327546 [debug] [Thread-1 (]: Began executing node model.global_market_dbt.int_market_metrics
+[0m20:46:25.331881 [debug] [Thread-1 (]: Writing runtime sql for node "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.332688 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.333259 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: BEGIN
+[0m20:46:25.333811 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:46:25.359220 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.359817 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.360380 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.int_market_metrics"} */
+
+  create view `marketdb`.`int_market_metrics__dbt_tmp`
+    
+    
+  as (
+    
+
+WITH base AS (
+    SELECT
+        index_name,
+        trade_date,
+        close_price,
+        LAG(close_price) OVER (PARTITION BY index_name ORDER BY trade_date) AS prev_close
+    FROM `marketdb`.`stg_global_index`
+)
+
+SELECT
+    index_name,
+    trade_date,
+    close_price,
+    (close_price - prev_close) / prev_close AS daily_return,
+    LOG(close_price / prev_close) AS log_return,
+    AVG(close_price) OVER (
+        PARTITION BY index_name 
+        ORDER BY trade_date 
+        ROWS BETWEEN 7 PRECEDING AND CURRENT ROW
+    ) AS moving_avg,
+    STDDEV_SAMP(close_price) OVER (
+        PARTITION BY index_name 
+        ORDER BY trade_date 
+        ROWS BETWEEN 7 PRECEDING AND CURRENT ROW
+    ) AS rolling_volatility
+FROM base
+WHERE prev_close IS NOT NULL
+  );
+[0m20:46:25.366749 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.370102 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.370685 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.int_market_metrics"} */
+
+    drop view if exists `marketdb`.`int_market_metrics__dbt_backup` cascade
+  
+[0m20:46:25.372796 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.374015 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.374566 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.int_market_metrics"} */
+
+    rename table `marketdb`.`int_market_metrics` to `marketdb`.`int_market_metrics__dbt_backup`
+  
+[0m20:46:25.378504 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.383165 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.383794 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.int_market_metrics"} */
+
+    drop view if exists `marketdb`.`int_market_metrics` cascade
+  
+[0m20:46:25.385722 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.386945 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.387532 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.int_market_metrics"} */
+
+    rename table `marketdb`.`int_market_metrics__dbt_tmp` to `marketdb`.`int_market_metrics`
+  
+[0m20:46:25.392625 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.395951 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: COMMIT
+[0m20:46:25.396832 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.397583 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: COMMIT
+[0m20:46:25.398511 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.402533 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.int_market_metrics"
+[0m20:46:25.403200 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.int_market_metrics"} */
+drop view if exists `marketdb`.`int_market_metrics__dbt_backup`
+[0m20:46:25.407934 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.410110 [debug] [Thread-1 (]: Timing info for model.global_market_dbt.int_market_metrics (execute): 20:46:25.327940 => 20:46:25.409810
+[0m20:46:25.410836 [debug] [Thread-1 (]: On model.global_market_dbt.int_market_metrics: Close
+[0m20:46:25.413007 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4ccac9f40>]}
+[0m20:46:25.415486 [info ] [Thread-1 (]: 2 of 3 OK created sql view model marketdb.int_market_metrics ................... [[32mSUCCESS 0[0m in 0.09s]
+[0m20:46:25.416374 [debug] [Thread-1 (]: Finished running node model.global_market_dbt.int_market_metrics
+[0m20:46:25.417411 [debug] [Thread-1 (]: Began running node model.global_market_dbt.fct_market_summary
+[0m20:46:25.418070 [info ] [Thread-1 (]: 3 of 3 START sql table model marketdb.fct_market_summary ....................... [RUN]
+[0m20:46:25.418944 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.global_market_dbt.int_market_metrics, now model.global_market_dbt.fct_market_summary)
+[0m20:46:25.419546 [debug] [Thread-1 (]: Began compiling node model.global_market_dbt.fct_market_summary
+[0m20:46:25.422908 [debug] [Thread-1 (]: Writing injected SQL for node "model.global_market_dbt.fct_market_summary"
+[0m20:46:25.423889 [debug] [Thread-1 (]: Timing info for model.global_market_dbt.fct_market_summary (compile): 20:46:25.419935 => 20:46:25.423508
+[0m20:46:25.424469 [debug] [Thread-1 (]: Began executing node model.global_market_dbt.fct_market_summary
+[0m20:46:25.446957 [debug] [Thread-1 (]: Writing runtime sql for node "model.global_market_dbt.fct_market_summary"
+[0m20:46:25.447811 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:25.448388 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: BEGIN
+[0m20:46:25.448973 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m20:46:25.474258 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:25.474877 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:25.475472 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.fct_market_summary"} */
+
+  
+    
+
+  create  table
+    `marketdb`.`fct_market_summary__dbt_tmp`
+    
+    
+      as
+    
+    (
+      
+
+WITH base AS (
+    SELECT
+        index_name,
+        trade_date,
+        daily_return,
+        close_price
+    FROM `marketdb`.`int_market_metrics`
+)
+
+SELECT
+    index_name,
+    trade_date,
+    ROUND(AVG(daily_return) OVER (
+        PARTITION BY index_name
+        ORDER BY trade_date
+        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ), 6) AS avg_return,
+    ROUND(STDDEV_SAMP(daily_return) OVER (
+        PARTITION BY index_name
+        ORDER BY trade_date
+        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ), 6) AS volatility,
+    MAX(close_price) OVER (
+        PARTITION BY index_name
+        ORDER BY trade_date
+        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ) AS max_price,
+    MIN(close_price) OVER (
+        PARTITION BY index_name
+        ORDER BY trade_date
+        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ) AS min_price
+FROM base
+ORDER BY index_name, trade_date
+    )
+
+  
+[0m20:46:34.849402 [debug] [Thread-1 (]: SQL status: SUCCESS 110239 in 9.0 seconds
+[0m20:46:34.854300 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:34.855191 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.fct_market_summary"} */
+
+    drop table if exists `marketdb`.`fct_market_summary__dbt_backup` cascade
+  
+[0m20:46:34.857912 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.859438 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:34.860107 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.fct_market_summary"} */
+
+    rename table `marketdb`.`fct_market_summary` to `marketdb`.`fct_market_summary__dbt_backup`
+  
+[0m20:46:34.870456 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.874301 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:34.874940 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.fct_market_summary"} */
+
+    drop table if exists `marketdb`.`fct_market_summary` cascade
+  
+[0m20:46:34.877069 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.878518 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:34.879180 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.fct_market_summary"} */
+
+    rename table `marketdb`.`fct_market_summary__dbt_tmp` to `marketdb`.`fct_market_summary`
+  
+[0m20:46:34.888811 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.895630 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: COMMIT
+[0m20:46:34.896271 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:34.896958 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: COMMIT
+[0m20:46:34.897995 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.901129 [debug] [Thread-1 (]: Using mysql connection "model.global_market_dbt.fct_market_summary"
+[0m20:46:34.901747 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: /* {"app": "dbt", "dbt_version": "1.7.0", "profile_name": "global_market_dbt", "target_name": "dev", "node_id": "model.global_market_dbt.fct_market_summary"} */
+drop table if exists `marketdb`.`fct_market_summary__dbt_backup`
+[0m20:46:34.911719 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.913467 [debug] [Thread-1 (]: Timing info for model.global_market_dbt.fct_market_summary (execute): 20:46:25.424858 => 20:46:34.913187
+[0m20:46:34.914119 [debug] [Thread-1 (]: On model.global_market_dbt.fct_market_summary: Close
+[0m20:46:34.916039 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '2a301818-3273-46d8-8f36-ff951044455e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cca930b0>]}
+[0m20:46:34.918352 [info ] [Thread-1 (]: 3 of 3 OK created sql table model marketdb.fct_market_summary .................. [[32mSUCCESS 110239[0m in 9.50s]
+[0m20:46:34.919304 [debug] [Thread-1 (]: Finished running node model.global_market_dbt.fct_market_summary
+[0m20:46:34.921149 [debug] [MainThread]: Using mysql connection "master"
+[0m20:46:34.921820 [debug] [MainThread]: On master: BEGIN
+[0m20:46:34.922524 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m20:46:34.950410 [debug] [MainThread]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.951336 [debug] [MainThread]: On master: COMMIT
+[0m20:46:34.952150 [debug] [MainThread]: Using mysql connection "master"
+[0m20:46:34.952983 [debug] [MainThread]: On master: COMMIT
+[0m20:46:34.954115 [debug] [MainThread]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m20:46:34.954965 [debug] [MainThread]: On master: Close
+[0m20:46:34.957670 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m20:46:34.958462 [debug] [MainThread]: Connection 'model.global_market_dbt.fct_market_summary' was properly closed.
+[0m20:46:34.959391 [info ] [MainThread]: 
+[0m20:46:34.960350 [info ] [MainThread]: Finished running 2 view models, 1 table model in 0 hours 0 minutes and 10.05 seconds (10.05s).
+[0m20:46:34.962271 [debug] [MainThread]: Command end result
+[0m20:46:34.969849 [info ] [MainThread]: 
+[0m20:46:34.970835 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m20:46:34.971758 [info ] [MainThread]: 
+[0m20:46:34.972720 [info ] [MainThread]: Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+[0m20:46:34.974314 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 11.009403, "process_user_time": 3.343944, "process_kernel_time": 0.247995, "process_mem_max_rss": "134612", "process_in_blocks": "12672", "process_out_blocks": "2288"}
+[0m20:46:34.975155 [debug] [MainThread]: Command `dbt run` succeeded at 20:46:34.974959 after 11.01 seconds
+[0m20:46:34.975823 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4d0573d40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cf583800>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74a4cff6a6c0>]}
+[0m20:46:34.978724 [debug] [MainThread]: Flushing usage events
