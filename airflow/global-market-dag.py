@@ -8,7 +8,7 @@ def run_forecast():
     subprocess.run(["python3", "/workspaces/Global-Market-Project/forecasting/model_forecast.py"], check=True)
 
 def update_dashboard():
-    subprocess.run(["python3", "/workspaces/Global-Market-Project/dash/update_dashboard.py"], check=True)
+    subprocess.run(["python3", "/workspaces/Global-Market-Project/dash/app.py"], check=True)
 
 default_args = {
     'owner': 'airflow',
@@ -16,6 +16,9 @@ default_args = {
     'start_date': datetime(2025, 1, 1),
     'retries': 1
 }
+
+venv_path = "/workspaces/Global-Market-Project/dbt/venv/bin/activate"
+project_dir = "/workspaces/Global-Market-Project/dbt"
 
 with DAG(
     dag_id='global_market_index_pipeline',
@@ -32,22 +35,14 @@ with DAG(
     )
 
     run_dbt = BashOperator(
-    task_id='run_dbt',
-    bash_command='''
-        source /home/codespace/dbt_env/bin/activate
-        cd /workspaces/Global-Market-Project/dbt
-        dbt run --profiles-dir .
-    ''',
-)
+        task_id='run_dbt',
+        bash_command=f"source {venv_path} && cd {project_dir} && dbt run --profiles-dir ."
+    )
 
     dbt_test = BashOperator(
-    task_id='dbt_test',
-    bash_command='''
-        source /home/codespace/dbt_env/bin/activate
-        cd /workspaces/Global-Market-Project/dbt
-        dbt test --profiles-dir .
-    '''
-)
+        task_id='dbt_test',
+        bash_command=f"source {venv_path} && cd {project_dir} && dbt test --profiles-dir ."
+    )
 
     forecast = PythonOperator(
         task_id='forecast',
@@ -59,5 +54,4 @@ with DAG(
         python_callable=update_dashboard
     )
 
-    
     ingest_data >> run_dbt >> dbt_test >> forecast >> refresh_dashboard
