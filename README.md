@@ -24,7 +24,7 @@ The system leverages the Kaggle dataset [Stock Exchange Data](https://www.kaggle
 | Layer | Tools / Frameworks | Description |
 |-------|--------------------|--------------|
 | **Data Ingestion** | Python (MySQL Connector) | Load raw CSV data into MySQL staging tables |
-| **Data Warehouse / Analytics Store** | DuckDB / MySQL | Store transformed and analytical data |
+| **Data Warehouse / Analytics Store** | MySQL | Store transformed and analytical data |
 | **Transformation & Modeling** | dbt (staging, intermediate, final models) | Data cleaning, metric computation, aggregation |
 | **Forecasting** | Python (Scikit-learn / Prophet) | Predict index prices and volatility |
 | **Orchestration** | Apache Airflow | Schedule and automate ingestion → transform → forecasting |
@@ -105,7 +105,7 @@ MySQL (Staging Tables)
         ↓
 dbt Transformations (Staging → Intermediate → Final)
         ↓
-DuckDB / Analytical Warehouse
+MySQL / Analytical Warehouse
         ↓
 Forecasting Engine (model_forecast.py)
         ↓
