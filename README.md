@@ -26,8 +26,8 @@ The system leverages the Kaggle dataset [Stock Exchange Data](https://www.kaggle
 | **Data Ingestion** | Python (MySQL Connector) | Load raw CSV data into MySQL staging tables |
 | **Data Warehouse / Analytics Store** | MySQL | Store transformed and analytical data |
 | **Transformation & Modeling** | dbt (staging, intermediate, final models) | Data cleaning, metric computation, aggregation |
-| **Forecasting** | Python (Scikit-learn / Prophet) | Predict index prices and volatility |
-| **Orchestration** | Apache Airflow | Schedule and automate ingestion → transform → forecasting |
+| **Forecasting** | Python (Prophet) | Predict index prices and volatility |
+| **Orchestration** | Apache Airflow | Schedule and automate ingestion → transform → forecasting → dashboard |
 | **Visualization** | Plotly Dash | Interactive dashboard for analysis |
 | **Documentation** | Markdown / PDF | System design and pipeline explanation |
 
@@ -99,13 +99,9 @@ fct_market_summary.sql
 ```
 Raw CSV Data (Kaggle)
         ↓
-Python ETL (load_data.py)
-        ↓
 MySQL (Staging Tables)
         ↓
 dbt Transformations (Staging → Intermediate → Final)
-        ↓
-MySQL / Analytical Warehouse
         ↓
 Forecasting Engine (model_forecast.py)
         ↓
@@ -120,8 +116,9 @@ Dash Dashboard (app.py)
 **Tasks:**
 1. `ingest_data` → Run `load_data.py`  
 2. `run_dbt` → Execute dbt transformations  
-3. `forecast_model` → Generate forecasts  
-4. `update_dashboard` → Refresh Dash data layer
+3. `dbt_test` → Test dbt
+4. `forecast_model` → Generate forecasts  
+5. `update_dashboard` → Refresh Dash data layer
 
 ---
 
@@ -171,6 +168,8 @@ python sql/load_data.py
 ### 3. Run dbt Models
 ```bash
 cd dbt
+source ~/venv/bin/activate
+dbt debug
 dbt run
 ```
 
@@ -184,9 +183,9 @@ python forecasting/model_forecast.py
 python dash/app.py
 ```
 
-### 6. Airflow DAG (Optional)
+### 6. Airflow DAG
 ```bash
-airflow dags trigger global-market-dag
+airflow standalone
 ```
 
 ---
@@ -197,4 +196,3 @@ airflow dags trigger global-market-dag
 - ✅ Data Flow & Architecture Diagram (`docs/architecture_diagram.png`)
 - ✅ dbt Model Lineage Graph
 - ✅ Forecasting Script & Dashboard
-- ✅ Optional 3-minute Demo Video
