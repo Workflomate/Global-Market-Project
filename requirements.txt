@@ -1,9 +1,0 @@
-mysql-connector-python
-dotenv
-psycopg2-binary
-dbt-core
-dbt-mysql
-prophet
-dash
-plotly
-apache-airflow
